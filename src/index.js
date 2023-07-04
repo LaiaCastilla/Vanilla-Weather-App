@@ -42,6 +42,7 @@ function searchCity(event) {
   );
   let humidity = document.querySelector("#humidity");
   let wind = document.querySelector("#wind");
+  let icon = document.querySelector("#day0-icon");
   function changeTemperature(response) {
     console.log(response);
     currentT.innerHTML = Math.round(response.data.temperature.current);
@@ -51,6 +52,7 @@ function searchCity(event) {
     weatherDescription.innerHTML =
       response.data.condition.description.charAt(0).toUpperCase() +
       response.data.condition.description.slice(1);
+    icon.setAttribute("src", `images/${response.data.condition.icon}.png`);
     console.log(response);
   }
 
