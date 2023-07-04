@@ -72,8 +72,12 @@ video {
   text-decoration: none;
   font-size: 14px;
 }
-.actual-maxminT {
-  font-size: 14px;
+.feels-like {
+  font-size: 12px;
+}
+.feeling-description {
+  font-size: 15px;
+  color: rgb(4, 89, 89);
 }
 .maxminT {
   font-weight: 200;

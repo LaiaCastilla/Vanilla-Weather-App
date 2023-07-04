@@ -32,28 +32,28 @@ function searchCity(event) {
   } else {
     alert`Please enter a valid city name`;
   }
-  let apiKey = "e6ad35b5f3210ce95c5f2b1592b152b6";
-  let weatherUrl = `https://api.openweathermap.org/data/2.5/weather?q=${cityInput.value}&units=metric&appid=${apiKey}`;
+  let apiKey = "fdt0a6ab6o2733f48fa51ccaa0c76a01";
+  let weatherUrl = `https://api.shecodes.io/weather/v1/current?query=${cityInput.value}&key=${apiKey}&units=metric`;
   let currentT = document.querySelector(".current-temp");
-  let currentMaxT = document.querySelector("#current-maxT");
-  let currentMinT = document.querySelector("#current-minT");
+  let feelsLikeT = document.querySelector("#feels-like");
+
   let weatherDescription = document.querySelector(
     ".current-weather-description"
   );
-
   let humidity = document.querySelector("#humidity");
   let wind = document.querySelector("#wind");
   function changeTemperature(response) {
-    currentT.innerHTML = Math.round(response.data.main.temp);
-    currentMaxT.innerHTML = Math.round(response.data.main.temp_max);
-    currentMinT.innerHTML = Math.round(response.data.main.temp_min);
-    humidity.innerHTML = Math.round(response.data.main.humidity);
+    console.log(response);
+    currentT.innerHTML = Math.round(response.data.temperature.current);
+    feelsLikeT.innerHTML = Math.round(response.data.temperature.feels_like);
+    humidity.innerHTML = Math.round(response.data.temperature.humidity);
     wind.innerHTML = Math.round(response.data.wind.speed);
     weatherDescription.innerHTML =
-      response.data.weather[0].description.charAt(0).toUpperCase() +
-      response.data.weather[0].description.slice(1);
+      response.data.condition.description.charAt(0).toUpperCase() +
+      response.data.condition.description.slice(1);
     console.log(response);
   }
+
   axios.get(weatherUrl).then(changeTemperature);
 }
 let searchForm = document.querySelector("#enter-city");
@@ -61,32 +61,31 @@ searchForm.addEventListener("submit", searchCity);
 //Current location weather Search
 function activateGeolocation() {
   function showLocationWeather(response) {
+    console.log(response);
     let currentT = document.querySelector(".current-temp");
-    let currentMaxT = document.querySelector("#current-maxT");
-    let currentMinT = document.querySelector("#current-minT");
+    let feelsLikeT = document.querySelector("#feels-like");
     let weatherDescription = document.querySelector(
       ".current-weather-description"
     );
     let humidity = document.querySelector("#humidity");
     let wind = document.querySelector("#wind");
     let city = document.querySelector(".city");
-    currentT.innerHTML = Math.round(response.data.main.temp);
-    currentMaxT.innerHTML = Math.round(response.data.main.temp_max);
-    currentMinT.innerHTML = Math.round(response.data.main.temp_min);
-    humidity.innerHTML = Math.round(response.data.main.humidity);
+    currentT.innerHTML = Math.round(response.data.temperature.current);
+    feelsLikeT.innerHTML = Math.round(response.data.temperature.feels_like);
+    humidity.innerHTML = Math.round(response.data.temperature.humidity);
     wind.innerHTML = Math.round(response.data.wind.speed);
     weatherDescription.innerHTML =
-      response.data.weather[0].description.charAt(0).toUpperCase() +
-      response.data.weather[0].description.slice(1);
+      response.data.condition.description.charAt(0).toUpperCase() +
+      response.data.condition.description.slice(1);
     console.log(response);
-    city.innerHTML = response.data.name;
+    city.innerHTML = response.data.city;
   }
 
   function retrievePosition(position) {
-    let apiKey = "e6ad35b5f3210ce95c5f2b1592b152b6";
+    let apiKey = "fdt0a6ab6o2733f48fa51ccaa0c76a01";
     let latitude = position.coords.latitude;
     let longitude = position.coords.longitude;
-    let weatherUrl = `https://api.openweathermap.org/data/2.5/weather?lat=${latitude}&lon=${longitude}&appid=${apiKey}&units=metric`;
+    let weatherUrl = `https://api.shecodes.io/weather/v1/current?lon=${longitude}&lat=${latitude}&key=${apiKey}&units=metric`;
     axios.get(weatherUrl).then(showLocationWeather);
   }
   navigator.geolocation.getCurrentPosition(retrievePosition);
