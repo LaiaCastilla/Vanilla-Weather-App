@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Weather App</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM"
+      crossorigin="anonymous"
+    />
+    <link rel="stylesheet" href="src/styles.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Amatic+SC:wght@400;700&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+      rel="stylesheet"
+    />
+    <script
+      src="https://kit.fontawesome.com/aaba7555e0.js"
+      crossorigin="anonymous"
+    ></script>
+    <script src="https://cdn.jsdelivr.net/npm/axios@1.1.2/dist/axios.min.js"></script>
+  </head>
+  <body>
+    <div class="background">
+      <video
+        playsinline
+        loop
+        muted
+        autoplay
+        src="images/SunCloud.mp4"
+        alt="SunCloud"
+      />
+    </div>
+    <div class="container">
+      <div class="card-container">
+        <div class="card">
+          <form id="enter-city">
+            <div class="row">
+              <span class="mb-3 col-9">
+                <input
+                  type="text"
+                  class="form-control shadow-sm"
+                  placeholder="Enter a city..."
+                  autofocus="on"
+                  autocomplete="off"
+                  id="search-city"
+                />
+              </span>
+              <span class="col-2 text-center">
+                <button type="submit" class="btn btn-primary shadow">
+                  Search
+                </button>
+              </span>
+              <span class="col-1 text-center">
+                <i class="fa-solid fa-location-dot location"></i>
+              </span>
+            </div>
+          </form>
+          <div class="header row">
+            <img
+              class="card-img day0-weather"
+              src="images/few-clouds-day.png"
+              alt="SunCloud"
+            />
+            <div class="header-left col-6">
+              <div class="day-time">Day of the week and time <br /></div>
+              <div class="city">Barcelona</div>
+              <div class="current-weather-description">Partially clouded</div>
+            </div>
+            <div class="header-right col-6">
+              <div class="actual-maxminT maxminT">
+                <span class="maxT" id="current-maxT">25</span
+                ><span class="max-degree degree">°C</span>/<span
+                  class="minT"
+                  id="current-minT"
+                  >17</span
+                ><span class="min-degree degree">°C</span>
+              </div>
+              <div class="current-temperature">
+                <span class="current-temp"> 23</span
+                ><span class="current-unit degree">°C</span>
+                <span class="alternative-units"
+                  >| <a id="alternative-degree" href="#">°F</a></span
+                >
+              </div>
+
+              <div class="extra-information">
+                <div class="humidity">
+                  Humidity: <span id="humidity">65</span>%
+                </div>
+                <div class="wind">Wind: <span id="wind"></span> km/h</div>
+              </div>
+            </div>
+          </div>
+          <br />
+          <br />
+
+          <div class="future-meteo row justify-content-center">
+            <div class="day1 col-2">
+              <strong class="week-day">Fri</strong>
+              <img
+                class="card-img day1-weather"
+                src="images/scattered-clouds-day.png"
+                alt="Cloud"
+              />
+              <div class="day1-maxminT maxminT">
+                <span class="maxT">22</span
+                ><span class="max-degree degree">°C</span>/<span class="minT"
+                  >16</span
+                ><span class="min-degree degree">°C</span>
+              </div>
+            </div>
+            <div class="day2 col-2">
+              <strong class="week-day">Sat</strong>
+              <img
+                class="card-img day2-weather"
+                src="images/scattered-clouds-day.png"
+                alt="Cloud"
+              />
+              <div class="day2-maxminT maxminT">
+                <span class="maxT">21</span
+                ><span class="max-degree degree">°C</span>/<span class="minT"
+                  >15</span
+                ><span class="min-degree degree">°C</span>
+              </div>
+            </div>
+            <div class="day3 col-2">
+              <strong class="week-day">Sun</strong>
+              <img
+                class="card-img day3-weather"
+                src="images/scattered-clouds-day.png"
+                alt="Cloud"
+              />
+              <div class="day3-maxminT maxminT">
+                <span class="maxT">23</span
+                ><span class="max-degree degree">°C</span>/<span class="minT"
+                  >17</span
+                ><span class="min-degree degree">°C</span>
+              </div>
+            </div>
+            <div class="day4 col-2">
+              <strong class="week-day">Mon</strong>
+              <img
+                class="card-img day4-weather"
+                src="images/scattered-clouds-day.png"
+                alt="Cloud"
+              />
+              <div class="day4-maxminT maxminT">
+                <span class="maxT">23</span
+                ><span class="max-degree degree">°C</span>/<span class="minT"
+                  >17</span
+                ><span class="min-degree degree">°C</span>
+              </div>
+            </div>
+            <div class="day5 col-2">
+              <strong class="week-day">Tue</strong>
+              <img
+                class="card-img day5-weather"
+                src="images/scattered-clouds-day.png"
+                alt="Cloud"
+              />
+              <div class="day5-maxminT maxminT">
+                <span class="maxT">22</span
+                ><span class="max-degree degree">°C</span>/<span class="minT"
+                  >14</span
+                ><span class="min-degree degree">°C</span>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="signature">
+          <a
+            href="https://github.com/Aylhenia/GitHub-Challenge"
+            target="_blank"
+            id="gitHub"
+            >Open-source code by </a
+          >LCA
+        </div>
+      </div>
+    </div>
+    <script src="src/index.js"></script>
+  </body>
+</html>

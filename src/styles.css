@@ -1,0 +1,122 @@
+video {
+  object-fit: cover;
+  height: 100%;
+  width: 100%;
+  position: absolute;
+  z-index: 0;
+  top: 0;
+  left: 0;
+}
+.container {
+  position: relative;
+  z-index: 1;
+  top: 80px;
+
+  display: block;
+  margin: 0 auto;
+  font-family: "Amatic SC", cursive;
+  font-family: "Poppins", sans-serif;
+}
+.card-container {
+  width: 600px;
+  display: block;
+  margin: 0 auto;
+}
+.card {
+  max-width: 600px;
+  padding: 30px 20px;
+  box-shadow: 10px 10px 20px rgba(0, 0, 0, 0.2);
+}
+.form {
+  background-color: white;
+}
+.location {
+  color: teal;
+  font-size: 35px;
+  transition: all 150ms ease-in-out;
+}
+.location:hover {
+  color: rgb(5, 109, 109);
+  cursor: pointer;
+  transform: scale(1.1);
+}
+.day0-weather {
+  max-width: 40%;
+  position: absolute;
+  margin-left: 100px;
+
+  z-index: 0;
+}
+.header-left {
+  font-size: 40px;
+  line-height: 30px;
+  font-weight: 300px;
+  z-index: 2;
+}
+.day-time {
+  font-size: 12px;
+}
+.current-weather-description {
+  font-size: 12px;
+}
+.header-right {
+  text-align: right;
+  line-height: 30px;
+}
+.alternative-units {
+  position: relative;
+  top: -18px;
+  font-size: 12px;
+}
+#alternative-degree {
+  text-decoration: none;
+  font-size: 14px;
+}
+.actual-maxminT {
+  font-size: 14px;
+}
+.maxminT {
+  font-weight: 200;
+}
+.maxT {
+  font-weight: 500;
+}
+.max-degree {
+  font-weight: 500;
+}
+.current-temperature {
+  font-size: 40px;
+  font-weight: 400;
+}
+.extra-information {
+  line-height: 15px;
+  padding-top: 0px;
+  font-size: 12px;
+}
+img.sun-cloud {
+  position: relative;
+  z-index: 2;
+  top: 40px;
+}
+.future-meteo {
+  text-align: center;
+  font-size: 12px;
+}
+.week-day {
+  font-weight: 600;
+}
+.signature {
+  color: aliceblue;
+  font-size: 14px;
+  margin-top: 5px;
+  text-align: center;
+  width: 100%;
+  font-family: "Courier New", Courier, monospace;
+}
+#gitHub {
+  text-decoration: none;
+  color: aliceblue;
+}
+#gitHub:hover {
+  color: rgb(169, 224, 224);
+}
