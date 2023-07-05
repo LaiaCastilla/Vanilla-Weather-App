@@ -53,6 +53,7 @@ function searchCity(event) {
       response.data.condition.description.charAt(0).toUpperCase() +
       response.data.condition.description.slice(1);
     icon.setAttribute("src", `images/${response.data.condition.icon}.png`);
+    icon.setAttribute("alt", response.data.condition.description);
     console.log(response);
   }
 
@@ -81,6 +82,7 @@ function activateGeolocation() {
       response.data.condition.description.charAt(0).toUpperCase() +
       response.data.condition.description.slice(1);
     icon.setAttribute("src", `images/${response.data.condition.icon}.png`);
+    icon.setAttribute("alt", response.data.condition.description);
     city.innerHTML = response.data.city;
   }
 
