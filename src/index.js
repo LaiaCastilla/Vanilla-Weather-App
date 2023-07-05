@@ -55,6 +55,11 @@ function displayWeather(response) {
     feelingDescription.classList.add("dark");
     alternativeDegree.classList.add("dark");
     icon.classList.add("dark");
+  } else {
+    card.classList.remove("dark");
+    feelingDescription.classList.remove("dark");
+    alternativeDegree.classList.remove("dark");
+    icon.classList.remove("dark");
   }
 }
 
