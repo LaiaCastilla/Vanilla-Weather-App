@@ -7,6 +7,11 @@ video {
   top: 0;
   left: 0;
 }
+
+body {
+  background-image: url("background-day-opac.png");
+  background-size: 150px;
+}
 .container {
   position: relative;
   z-index: 1;
@@ -136,17 +141,18 @@ img.sun-cloud {
   font-weight: 600;
 }
 .signature {
-  color: aliceblue;
-  font-size: 14px;
+  color: teal;
+  font-size: 15px;
   margin-top: 5px;
   text-align: center;
   width: 100%;
   font-family: "Courier New", Courier, monospace;
+  font-weight: 600;
 }
 #gitHub {
   text-decoration: none;
-  color: aliceblue;
+  color: teal;
 }
 #gitHub:hover {
-  color: rgb(169, 224, 224);
+  color: rgb(27, 44, 44);
 }
