@@ -17,6 +17,26 @@ video {
   font-family: "Amatic SC", cursive;
   font-family: "Poppins", sans-serif;
 }
+.card.dark {
+  background-color: rgb(12, 26, 46);
+  color: rgb(241, 246, 255);
+}
+.dark img {
+  opacity: 90%;
+}
+.feeling-description.dark {
+  color: rgb(96, 206, 206);
+}
+
+#alternative-degree.dark {
+  text-decoration: none;
+  color: rgb(170, 221, 204);
+  transition: all 150ms ease-in-out;
+}
+#alternative-degree.dark:hover {
+  color: rgb(146, 185, 172);
+}
+
 .card-container {
   width: 600px;
   display: block;
@@ -47,6 +67,7 @@ video {
   opacity: 60%;
   z-index: 0;
 }
+
 .header-left {
   font-size: 40px;
   line-height: 30px;
@@ -71,10 +92,15 @@ video {
 #alternative-degree {
   text-decoration: none;
   font-size: 14px;
+  transition: all 150ms ease-in-out;
+}
+#alternative-degree:hover {
+  color: rgb(57, 57, 246);
 }
 .feels-like {
   font-size: 12px;
 }
+
 .feeling-description {
   font-size: 15px;
   color: rgb(4, 89, 89);

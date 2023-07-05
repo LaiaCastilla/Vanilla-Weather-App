@@ -44,6 +44,18 @@ function displayWeather(response) {
     response.data.condition.description.slice(1);
   icon.setAttribute("src", `images/${response.data.condition.icon}.png`);
   icon.setAttribute("alt", response.data.condition.description);
+
+  //set dark mode at night
+  let card = document.querySelector(".card");
+  let feelingDescription = document.querySelector(".feeling-description");
+  let alternativeDegree = document.querySelector(".alternative-degree");
+  if (icon.src.includes("night")) {
+    console.log("night");
+    card.classList.add("dark");
+    feelingDescription.classList.add("dark");
+    alternativeDegree.classList.add("dark");
+    icon.classList.add("dark");
+  }
 }
 
 function searchCity(city) {
