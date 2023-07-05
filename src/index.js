@@ -86,7 +86,7 @@ currentLocation.addEventListener("click", activateGeolocation);
 
 //Change between units
 function updateUnitsDegrees(event) {
-  /*let currentT = document.querySelector(".current-temp");
+  let currentT = document.querySelector(".current-temp");
   console.log(currentT);
   let currentUnit = document.querySelector(".current-unit");
   console.log(currentUnit.innerHTML);
@@ -98,8 +98,9 @@ function updateUnitsDegrees(event) {
     currentT.innerHTML = Math.round((currentT.innerHTML - 32) * 0.556);
     currentUnit.innerHTML = "°C";
     alternativeUnit.innerHTML = "°F";
-  }*/
-  function displayCelsiusTemperature(temperature) {
+  }
+
+  /* function displayCelsiusTemperature(temperature) {
     temperature.innerHTML = Math.round((temperature.innerHTML - 32) * 0.556);
   }
   function displayFahrenheitTemperature(temperature) {
@@ -119,7 +120,7 @@ function updateUnitsDegrees(event) {
   let temperatures = document.querySelectorAll(".temperature");
   console.log(temperatures);
   let degrees = document.querySelectorAll(".degree");
-  degrees.forEach(changeUnit);
+  degrees.forEach(changeUnit);*/
 }
 
 let alternativeUnit = document.querySelector("#alternative-degree");
