@@ -49,17 +49,26 @@ function displayWeather(response) {
   let card = document.querySelector(".card");
   let feelingDescription = document.querySelector(".feeling-description");
   let alternativeDegree = document.querySelector(".alternative-degree");
+  let body = document.querySelector("body");
+  let signature = document.querySelector(".signature");
+  let gitHub = document.querySelector("#gitHub");
   if (icon.src.includes("night")) {
     console.log("night");
     card.classList.add("dark");
     feelingDescription.classList.add("dark");
     alternativeDegree.classList.add("dark");
     icon.classList.add("dark");
+    body.classList.add("dark");
+    signature.classList.add("dark");
+    gitHub.classList.add("dark");
   } else {
     card.classList.remove("dark");
     feelingDescription.classList.remove("dark");
     alternativeDegree.classList.remove("dark");
     icon.classList.remove("dark");
+    body.classList.remove("dark");
+    signature.classList.remove("dark");
+    gitHub.classList.remove("dark");
   }
 }
 

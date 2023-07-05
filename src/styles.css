@@ -10,7 +10,11 @@ video {
 
 body {
   background-image: url("background-day-opac35.png");
-  background-size: 150px;
+  background-size: 500px;
+}
+body.dark {
+  background-image: url("background-night-opac35.png");
+  background-size: 500px;
 }
 .container {
   position: relative;
@@ -155,4 +159,13 @@ img.sun-cloud {
 }
 #gitHub:hover {
   color: rgb(27, 44, 44);
+}
+.signature.dark {
+  color: rgb(169, 221, 204);
+}
+#gitHub.dark {
+  color: rgb(169, 221, 204);
+}
+#gitHub.dark:hover {
+  color: rgb(182, 255, 231);
 }
