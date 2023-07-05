@@ -45,6 +45,7 @@ function displayWeather(response) {
   icon.setAttribute("src", `images/${response.data.condition.icon}.png`);
   icon.setAttribute("alt", response.data.condition.description);
 }
+
 function searchCity(city) {
   let apiKey = "fdt0a6ab6o2733f48fa51ccaa0c76a01";
   let weatherUrl = `https://api.shecodes.io/weather/v1/current?query=${city}&key=${apiKey}&units=metric`;
@@ -64,9 +65,6 @@ function handleSubmit(event) {
     alert`Please enter a valid city name`;
   }
 }
-let searchForm = document.querySelector("#enter-city");
-searchForm.addEventListener("submit", handleSubmit);
-
 function activateGeolocation(event) {
   function retrievePosition(position) {
     let apiKey = "fdt0a6ab6o2733f48fa51ccaa0c76a01";
@@ -80,12 +78,15 @@ function activateGeolocation(event) {
   navigator.geolocation.getCurrentPosition(retrievePosition);
 }
 
+let searchForm = document.querySelector("#enter-city");
+searchForm.addEventListener("submit", handleSubmit);
+
 let currentLocation = document.querySelector(".location");
 currentLocation.addEventListener("click", activateGeolocation);
 
 //Change between units
-function changeUnit(event) {
-  let currentT = document.querySelector(".current-temp");
+function updateUnitsDegrees(event) {
+  /*let currentT = document.querySelector(".current-temp");
   console.log(currentT);
   let currentUnit = document.querySelector(".current-unit");
   console.log(currentUnit.innerHTML);
@@ -97,8 +98,29 @@ function changeUnit(event) {
     currentT.innerHTML = Math.round((currentT.innerHTML - 32) * 0.556);
     currentUnit.innerHTML = "°C";
     alternativeUnit.innerHTML = "°F";
+  }*/
+  function displayCelsiusTemperature(temperature) {
+    temperature.innerHTML = Math.round((temperature.innerHTML - 32) * 0.556);
   }
+  function displayFahrenheitTemperature(temperature) {
+    temperature.innerHTML = Math.round(temperature.innerHTML * 1.8 + 32);
+  }
+  function changeUnit(degree) {
+    if (degrees.innerHTML === "°C") {
+      degrees.innerHTML = "°F";
+      alternativeUnit.innerHTML = "°C";
+      temperatures.forEach(displayFahrenheitTemperature);
+    } else {
+      degrees.innerHTML = "°C";
+      alternativeUnit.innerHTML = "°F";
+      temperatures.forEach(displayCelsiusTemperature);
+    }
+  }
+  let temperatures = document.querySelectorAll(".temperature");
+  console.log(temperatures);
+  let degrees = document.querySelectorAll(".degree");
+  degrees.forEach(changeUnit);
 }
 
 let alternativeUnit = document.querySelector("#alternative-degree");
-alternativeUnit.addEventListener("click", changeUnit);
+alternativeUnit.addEventListener("click", updateUnitsDegrees);
