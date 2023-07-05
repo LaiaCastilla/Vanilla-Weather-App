@@ -72,6 +72,7 @@ function activateGeolocation() {
     let humidity = document.querySelector("#humidity");
     let wind = document.querySelector("#wind");
     let city = document.querySelector(".city");
+    let icon = document.querySelector("#day0-icon");
     currentT.innerHTML = Math.round(response.data.temperature.current);
     feelsLikeT.innerHTML = Math.round(response.data.temperature.feels_like);
     humidity.innerHTML = Math.round(response.data.temperature.humidity);
@@ -79,7 +80,7 @@ function activateGeolocation() {
     weatherDescription.innerHTML =
       response.data.condition.description.charAt(0).toUpperCase() +
       response.data.condition.description.slice(1);
-    console.log(response);
+    icon.setAttribute("src", `images/${response.data.condition.icon}.png`);
     city.innerHTML = response.data.city;
   }
 
