@@ -40,9 +40,7 @@ function displayForecast(response) {
       forecastHTML =
         forecastHTML +
         `<div class="col-2">
-        <strong class="forecast-date">${forecastDay(
-          weather.time
-        )}</strong>
+        <strong class="forecast-date">${forecastDay(weather.time)}</strong>
          <img
                 class="card-img forecast-icon"
                 src="images/${weather.condition.icon}.png"
@@ -167,16 +165,24 @@ currentLocation.addEventListener("click", activateGeolocation);
 //Change between units
 function updateUnitsDegrees(event) {
   let currentT = document.querySelector(".current-temp");
+  let feltT = document.querySelector("#feels-like");
   console.log(currentT);
+  console.log(feltT);
   let currentUnit = document.querySelector(".current-unit");
+  let feltTUnit = document.querySelector("#feels-like-degree");
+
   console.log(currentUnit.innerHTML);
   if (currentUnit.innerHTML === "°C") {
     currentT.innerHTML = Math.round(currentT.innerHTML * 1.8 + 32);
+    feltT.innerHTML = Math.round(feltT.innerHTML * 1.8 + 32);
     currentUnit.innerHTML = "°F";
     alternativeUnit.innerHTML = "°C";
+    feltTUnit.innerHTML = "°F";
   } else {
     currentT.innerHTML = Math.round((currentT.innerHTML - 32) * 0.556);
+    feltT.innerHTML = Math.round((feltT.innerHTML - 32) * 0.556);
     currentUnit.innerHTML = "°C";
+    feltTUnit.innerHTML = "°C";
     alternativeUnit.innerHTML = "°F";
   }
 
