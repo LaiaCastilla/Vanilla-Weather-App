@@ -46,14 +46,16 @@ function displayForecast(response) {
                 src="images/${weather.condition.icon}.png"
                 alt="Cloud"
          />
-        <div class="forecast-temperatures maxminT">
+        <div class="forecast-temperatures maxminT"> <span class="temperature-set>
            <span class="maxT forecast-temperature temperature">${Math.round(
              weather.temperature.maximum
            )}</span
-           ><span class="max-degree degree">°C</span>/<span
+           ><span class="max-degree degree">°C</span></span>/<span
            class="minT forecast-temperature temperature"
-           >${Math.round(weather.temperature.minimum)}</span
-           ><span class="min-degree degree">°C</span>
+           ><span class="temperature-set>${Math.round(
+             weather.temperature.minimum
+           )}</span
+           ><span class="min-degree degree">°C</span></span>
          </div>
     </div>
   `;
@@ -193,7 +195,7 @@ function updateUnitsDegrees(event) {
     console.log(temperature);
     temperature.innerHTML = Math.round(temperature.innerHTML * 1.8 + 32);
   }*/
-  function celsiusToF() {
+  /*function celsiusToF() {
     let temperatures = document.querySelectorAll(".temperature");
     temperatures.forEach(function () {
       temperatures.innerHTML = Math.round(temperature.innerHTML * 1.8 + 32);
@@ -220,8 +222,24 @@ function updateUnitsDegrees(event) {
       alternativeUnit.innerHTML = "°F";
       fToCelsius();
     }
-  });
+  });*/
   /*}*/
+
+  let temperatureSet = document.querySelectorAll(".temperature-set");
+  console.log(temperatureSet);
+  temperatureSet.forEach(function changeUnit() {
+    let degree = document.querySelector(".degree");
+    let temperature = document.querySelector(".temperature");
+    if (degree.innerHTML === "°C") {
+      degree.innerHTML = "°F";
+      temperature.innerHTML = Math.round(temperature.innerHTML * 1.8 + 32);
+      alternativeUnit.innerHTML = "°C";
+    } else {
+      degree.innerHTML = "°C";
+      temperature.innerHTML = Math.round((temperature.innerHTML - 32) * 0.556);
+      alternativeUnit.innerHTML = "°F";
+    }
+  });
 }
 
 let alternativeUnit = document.querySelector("#alternative-degree");
