@@ -21,6 +21,36 @@ if (minutes < 10) {
 let currentDayTime = document.querySelector("#day-time");
 currentDayTime.innerHTML = `${day} ${hour}:${minutes}`;
 
+//Forecast
+function displayForecast() {
+  let forecast = document.querySelector("#forecast");
+  let forecastHTML = `<div class="row justify-content-center">`;
+  let forecastDays = ["Fri", "Sat", "Sun", "Mon", "Tue"];
+  forecastDays.forEach(function (day) {
+    forecastHTML =
+      forecastHTML +
+      `<div class="col-2">
+        <strong class="forecast-date">${day}</strong>
+         <img
+                class="card-img forecast-icon"
+                src="images/scattered-clouds-day.png"
+                alt="Cloud"
+         />
+        <div class="forecast-temperatures maxminT">
+           <span class="maxT forecast-temperature">22</span
+           ><span class="max-degree degree">°C</span>/<span
+           class="minT forecast-temperature"
+           >16</span
+           ><span class="min-degree degree">°C</span>
+         </div>
+    </div>
+  `;
+  });
+  forecastHTML = forecastHTML + `</div>`;
+
+  forecast.innerHTML = forecastHTML;
+}
+
 //Display Weather
 function displayWeather(response) {
   let city = document.querySelector(".city");
@@ -151,3 +181,4 @@ function updateUnitsDegrees(event) {
 
 let alternativeUnit = document.querySelector("#alternative-degree");
 alternativeUnit.addEventListener("click", updateUnitsDegrees);
+displayForecast();
