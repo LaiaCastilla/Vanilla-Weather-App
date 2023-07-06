@@ -22,31 +22,44 @@ let currentDayTime = document.querySelector("#day-time");
 currentDayTime.innerHTML = `${day} ${hour}:${minutes}`;
 
 //Forecast
+function forecastDay(timestamp) {
+  let date = new Date(timestamp * 1000);
+  let weekDays = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
+  let day = weekDays[date.getDay()];
+  return day;
+}
 function displayForecast(response) {
   console.log(response.data.daily);
+  let forecastDays = response.data.daily;
   let forecast = document.querySelector("#forecast");
   let forecastHTML = `<div class="row justify-content-center">`;
-  let forecastDays = ["Fri", "Sat", "Sun", "Mon", "Tue"];
-  forecastDays.forEach(function (day) {
+
+  forecastDays.forEach(function (weather, index) {
     //loop so the code is only written once
-    forecastHTML =
-      forecastHTML +
-      `<div class="col-2">
-        <strong class="forecast-date">${day}</strong>
+    if (index > 0 && index < 6) {
+      forecastHTML =
+        forecastHTML +
+        `<div class="col-2">
+        <strong class="forecast-date">${forecastDay(
+          weather.time
+        )}</strong>
          <img
                 class="card-img forecast-icon"
-                src="images/scattered-clouds-day.png"
+                src="images/${weather.condition.icon}.png"
                 alt="Cloud"
          />
         <div class="forecast-temperatures maxminT">
-           <span class="maxT forecast-temperature">22</span
+           <span class="maxT forecast-temperature">${Math.round(
+             weather.temperature.maximum
+           )}</span
            ><span class="max-degree degree">°C</span>/<span
            class="minT forecast-temperature"
-           >16</span
+           >${Math.round(weather.temperature.minimum)}</span
            ><span class="min-degree degree">°C</span>
          </div>
     </div>
   `;
+    }
   });
   forecastHTML = forecastHTML + `</div>`; //do not forget to close the row
   forecast.innerHTML = forecastHTML;
