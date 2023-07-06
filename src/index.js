@@ -22,11 +22,13 @@ let currentDayTime = document.querySelector("#day-time");
 currentDayTime.innerHTML = `${day} ${hour}:${minutes}`;
 
 //Forecast
-function displayForecast() {
+function displayForecast(response) {
+  console.log(response.data.daily);
   let forecast = document.querySelector("#forecast");
   let forecastHTML = `<div class="row justify-content-center">`;
   let forecastDays = ["Fri", "Sat", "Sun", "Mon", "Tue"];
   forecastDays.forEach(function (day) {
+    //loop so the code is only written once
     forecastHTML =
       forecastHTML +
       `<div class="col-2">
@@ -46,9 +48,15 @@ function displayForecast() {
     </div>
   `;
   });
-  forecastHTML = forecastHTML + `</div>`;
-
+  forecastHTML = forecastHTML + `</div>`; //do not forget to close the row
   forecast.innerHTML = forecastHTML;
+}
+
+function getForecast(coordinates) {
+  console.log(coordinates);
+  let apiKey = "fdt0a6ab6o2733f48fa51ccaa0c76a01";
+  let forecastUrl = `https://api.shecodes.io/weather/v1/forecast?lon=${coordinates.longitude}&lat=${coordinates.latitude}&key=${apiKey}&units=metric`;
+  axios.get(forecastUrl).then(displayForecast);
 }
 
 //Display Weather
@@ -100,6 +108,9 @@ function displayWeather(response) {
     signature.classList.remove("dark");
     gitHub.classList.remove("dark");
   }
+
+  //To direct to forecast
+  getForecast(response.data.coordinates);
 }
 
 function searchCity(city) {
@@ -181,4 +192,4 @@ function updateUnitsDegrees(event) {
 
 let alternativeUnit = document.querySelector("#alternative-degree");
 alternativeUnit.addEventListener("click", updateUnitsDegrees);
-displayForecast();
+searchCity("Barcelona");
