@@ -18,7 +18,7 @@ let minutes = currentTime.getMinutes();
 if (minutes < 10) {
   minutes = `0${minutes}`;
 }
-let currentDayTime = document.querySelector(".day-time");
+let currentDayTime = document.querySelector("#day-time");
 currentDayTime.innerHTML = `${day} ${hour}:${minutes}`;
 
 //Display Weather
