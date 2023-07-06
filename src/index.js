@@ -47,11 +47,11 @@ function displayForecast(response) {
                 alt="Cloud"
          />
         <div class="forecast-temperatures maxminT">
-           <span class="maxT forecast-temperature">${Math.round(
+           <span class="maxT forecast-temperature temperature">${Math.round(
              weather.temperature.maximum
            )}</span
            ><span class="max-degree degree">°C</span>/<span
-           class="minT forecast-temperature"
+           class="minT forecast-temperature temperature"
            >${Math.round(weather.temperature.minimum)}</span
            ><span class="min-degree degree">°C</span>
          </div>
@@ -164,7 +164,7 @@ currentLocation.addEventListener("click", activateGeolocation);
 
 //Change between units
 function updateUnitsDegrees(event) {
-  let currentT = document.querySelector(".current-temp");
+  /*let currentT = document.querySelector(".current-temp");
   let feltT = document.querySelector("#feels-like");
   console.log(currentT);
   console.log(feltT);
@@ -184,30 +184,65 @@ function updateUnitsDegrees(event) {
     currentUnit.innerHTML = "°C";
     feltTUnit.innerHTML = "°C";
     alternativeUnit.innerHTML = "°F";
-  }
+  }*/
 
   /* function displayCelsiusTemperature(temperature) {
     temperature.innerHTML = Math.round((temperature.innerHTML - 32) * 0.556);
   }
   function displayFahrenheitTemperature(temperature) {
+    console.log(temperature);
     temperature.innerHTML = Math.round(temperature.innerHTML * 1.8 + 32);
-  }
-  function changeUnit(degree) {
-    if (degrees.innerHTML === "°C") {
-      degrees.innerHTML = "°F";
+  }*/
+  /*function changeUnit() {
+    if (degree.innerHTML === "°C") {
+      degree.innerHTML = "°F";
       alternativeUnit.innerHTML = "°C";
-      temperatures.forEach(displayFahrenheitTemperature);
+      let temperature = document.querySelectorAll(".temperature");
+      console.log(temperature);
+      temperature.forEach(function (temperature) {
+        console.log(temperature);
+        temperature.innerHTML = Math.round(temperature.innerHTML * 1.8 + 32);
+      });
     } else {
-      degrees.innerHTML = "°C";
+      degree.innerHTML = "°C";
       alternativeUnit.innerHTML = "°F";
-      temperatures.forEach(displayCelsiusTemperature);
+      let temperature = document.querySelectorAll(".temperature");
+      temperature.forEach(function (temperature) {
+        temperature.innerHTML = Math.round(
+          (temperature.innerHTML - 32) * 0.556
+        );
+      });
+    }*/
+  
+  let temperature = document.querySelectorAll(".temperature");
+  console.log(temperature);
+  let degree = document.querySelectorAll(".degree");
+  console.log(degree);
+  degree.forEach(changeUnit(){
+    if (degree.innerHTML === "°C") {
+      degree.innerHTML = "°F";
+      alternativeUnit.innerHTML = "°C";
+      let temperature = document.querySelectorAll(".temperature");
+      console.log(temperature);
+      temperature.forEach(function (temperature) {
+        console.log(temperature);
+        temperature.innerHTML = Math.round(temperature.innerHTML * 1.8 + 32);
+      });
+    } else {
+      degree.innerHTML = "°C";
+      alternativeUnit.innerHTML = "°F";
+      let temperature = document.querySelectorAll(".temperature");
+      temperature.forEach(function (temperature) {
+        temperature.innerHTML = Math.round(
+          (temperature.innerHTML - 32) * 0.556
+        );
+      });
     }
-  }
-  let temperatures = document.querySelectorAll(".temperature");
-  console.log(temperatures);
-  let degrees = document.querySelectorAll(".degree");
-  degrees.forEach(changeUnit);*/
+  });
+ /*}*/
 }
+
+
 
 let alternativeUnit = document.querySelector("#alternative-degree");
 alternativeUnit.addEventListener("click", updateUnitsDegrees);
