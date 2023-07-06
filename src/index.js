@@ -193,56 +193,36 @@ function updateUnitsDegrees(event) {
     console.log(temperature);
     temperature.innerHTML = Math.round(temperature.innerHTML * 1.8 + 32);
   }*/
-  /*function changeUnit() {
-    if (degree.innerHTML === "°C") {
-      degree.innerHTML = "°F";
-      alternativeUnit.innerHTML = "°C";
-      let temperature = document.querySelectorAll(".temperature");
-      console.log(temperature);
-      temperature.forEach(function (temperature) {
-        console.log(temperature);
-        temperature.innerHTML = Math.round(temperature.innerHTML * 1.8 + 32);
-      });
-    } else {
-      degree.innerHTML = "°C";
-      alternativeUnit.innerHTML = "°F";
-      let temperature = document.querySelectorAll(".temperature");
-      temperature.forEach(function (temperature) {
-        temperature.innerHTML = Math.round(
-          (temperature.innerHTML - 32) * 0.556
-        );
-      });
-    }*/
-  
+  function celsiusToF() {
+    let temperatures = document.querySelectorAll(".temperature");
+    temperatures.forEach(function () {
+      temperatures.innerHTML = Math.round(temperature.innerHTML * 1.8 + 32);
+    });
+  }
+  function fToCelsius() {
+    let temperature = document.querySelectorAll(".temperature");
+    temperature.forEach(function (temperature) {
+      temperature.innerHTML = Math.round((temperature.innerHTML - 32) * 0.556);
+    });
+  }
+
   let temperature = document.querySelectorAll(".temperature");
   console.log(temperature);
   let degree = document.querySelectorAll(".degree");
   console.log(degree);
-  degree.forEach(changeUnit(){
+  degree.forEach(function changeUnit() {
     if (degree.innerHTML === "°C") {
       degree.innerHTML = "°F";
       alternativeUnit.innerHTML = "°C";
-      let temperature = document.querySelectorAll(".temperature");
-      console.log(temperature);
-      temperature.forEach(function (temperature) {
-        console.log(temperature);
-        temperature.innerHTML = Math.round(temperature.innerHTML * 1.8 + 32);
-      });
+      celsiusToF();
     } else {
       degree.innerHTML = "°C";
       alternativeUnit.innerHTML = "°F";
-      let temperature = document.querySelectorAll(".temperature");
-      temperature.forEach(function (temperature) {
-        temperature.innerHTML = Math.round(
-          (temperature.innerHTML - 32) * 0.556
-        );
-      });
+      fToCelsius();
     }
   });
- /*}*/
+  /*}*/
 }
-
-
 
 let alternativeUnit = document.querySelector("#alternative-degree");
 alternativeUnit.addEventListener("click", updateUnitsDegrees);
