@@ -25,18 +25,6 @@
     <script src="https://cdn.jsdelivr.net/npm/axios@1.1.2/dist/axios.min.js"></script>
   </head>
   <body>
-       <!--  <img src="images/background-day.png" class="background" alt="day" />
-    <div class="background">
-        <video
-        playsinline
-        loop
-        muted
-        autoplay
-        src="images/SunCloud.mp4"
-        alt="SunCloud"
-      />
-      <img src="images/background-day.png" class="background" alt="day" /> -->
-    </div>
     <div class="container">
       <div class="card-container">
         <div class="card">
@@ -70,7 +58,10 @@
               alt="SunCloud"
             />
             <div class="header-left col-6">
-              <div class="day-time">Last updated: <span id="day-time">Day of the week and time </span><br /></div>
+              <div class="day-time">
+                Last updated:
+                <span id="day-time">Day of the week and time </span><br />
+              </div>
               <div class="city">Barcelona</div>
               <div class="current-weather-description">Partially clouded</div>
             </div>
@@ -103,96 +94,17 @@
           </div>
           <br />
           <br />
-
-          <div class="forecast"  id="forecast">
-           <!--  <div class="row justify-content-center">
-            <div class="day1 col-2">
-              <strong class="week-day">Fri</strong>
-              <img
-                class="card-img day1-weather"
-                src="images/scattered-clouds-day.png"
-                alt="Cloud"
-              />
-              <div class="day1-maxminT maxminT">
-                <span class="maxT temperature">22</span
-                ><span class="max-degree degree">°C</span>/<span
-                  class="minT temperature"
-                  >16</span
-                ><span class="min-degree degree">°C</span>
-              </div>
-            </div>
-            <div class="day2 col-2">
-              <strong class="week-day">Sat</strong>
-              <img
-                class="card-img day2-weather"
-                src="images/scattered-clouds-day.png"
-                alt="Cloud"
-              />
-              <div class="day2-maxminT maxminT">
-                <span class="maxT temperature">21</span
-                ><span class="max-degree degree">°C</span>/<span
-                  class="minT temperature"
-                  >15</span
-                ><span class="min-degree degree">°C</span>
-              </div>
-            </div>
-            <div class="day3 col-2">
-              <strong class="week-day">Sun</strong>
-              <img
-                class="card-img day3-weather"
-                src="images/scattered-clouds-day.png"
-                alt="Cloud"
-              />
-              <div class="day3-maxminT maxminT">
-                <span class="maxT temperature">23</span
-                ><span class="max-degree degree">°C</span>/<span
-                  class="minT temperature"
-                  >17</span
-                ><span class="min-degree degree">°C</span>
-              </div>
-            </div>
-            <div class="day4 col-2">
-              <strong class="week-day">Mon</strong>
-              <img
-                class="card-img day4-weather"
-                src="images/scattered-clouds-day.png"
-                alt="Cloud"
-              />
-              <div class="day4-maxminT maxminT">
-                <span class="maxT temperature">23</span
-                ><span class="max-degree degree">°C</span>/<span
-                  class="minT temperature"
-                  >17</span
-                ><span class="min-degree degree">°C</span>
-              </div>
-            </div>
-            <div class="day5 col-2">
-              <strong class="week-day">Tue</strong>
-              <img
-                class="card-img day5-weather"
-                src="images/scattered-clouds-day.png"
-                alt="Cloud"
-              />
-              <div class="day5-maxminT maxminT">
-                <span class="maxT temperature">22</span
-                ><span class="max-degree degree">°C</span>/<span
-                  class="minT temperature"
-                  >14</span
-                ><span class="min-degree degree">°C</span>
-              </div>
-              </div> -->
-            </div>
-          </div>
+          <div class="forecast" id="forecast"></div>
         </div>
-        <div class="signature">
-          Illustrations and
-          <a
-            href="https://github.com/Aylhenia/Vanilla-Weather-App"
-            target="_blank"
-            id="gitHub"
-            >open-source code by </a
-          >LCA
-        </div>
+      </div>
+      <div class="signature">
+        Illustrations and
+        <a
+          href="https://github.com/Aylhenia/Vanilla-Weather-App"
+          target="_blank"
+          id="gitHub"
+          >open-source code by </a
+        >LCA
       </div>
     </div>
     <script src="src/index.js"></script>
