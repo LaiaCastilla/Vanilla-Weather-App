@@ -121,11 +121,11 @@ body.dark {
   padding-top: 0px;
   font-size: 12px;
 }
-img.sun-cloud {
+/* img.sun-cloud {
   position: relative;
   z-index: 2;
   top: 40px;
-}
+} */
 .forecast {
   text-align: center;
   font-size: 12px;
@@ -171,5 +171,29 @@ img.sun-cloud {
   }
   .top-form {
     font-size: 13px;
+  }
+  .header-left {
+    font-size: 30px;
+  }
+  .extra-information {
+    font-size: 10px;
+  }
+  .day-time {
+    font-size: 10px;
+  }
+
+  .day0-weather {
+    max-width: 45%;
+    position: absolute;
+    margin-top: 20px;
+    margin-left: 85px;
+    opacity: 60%;
+    z-index: 0;
+  }
+  .forecast {
+    font-size: 10px;
+  }
+  .signature {
+    font-size: 12px;
   }
 }
