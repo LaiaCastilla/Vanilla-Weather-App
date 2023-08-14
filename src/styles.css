@@ -6,11 +6,10 @@ body.dark {
   background-image: url("background-night-opac35.png");
   background-size: 500px;
 }
-.container {
+.page-container {
   position: relative;
   z-index: 1;
   top: 80px;
-
   display: block;
   margin: 0 auto;
   font-family: "Amatic SC", cursive;
@@ -158,4 +157,19 @@ img.sun-cloud {
 }
 #gitHub.dark:hover {
   color: rgb(182, 255, 231);
+}
+
+@media (max-width: 600px) {
+  .card-container {
+    max-width: fit-content;
+    margin: 0 auto;
+  }
+  .card {
+    max-width: 95%;
+    padding: 20px 5px;
+    margin: 0 auto;
+  }
+  .top-form {
+    font-size: 13px;
+  }
 }

@@ -25,27 +25,27 @@
     <script src="https://cdn.jsdelivr.net/npm/axios@1.1.2/dist/axios.min.js"></script>
   </head>
   <body>
-    <div class="container">
+    <div class="page-container">
       <div class="card-container">
         <div class="card">
           <form id="enter-city">
             <div class="row">
-              <span class="mb-3 col-9">
+              <span class="mb-3 col-8 col-sm-9">
                 <input
                   type="text"
-                  class="form-control shadow-sm"
+                  class="form-control shadow-sm top-form"
                   placeholder="Enter a city..."
                   autofocus="on"
                   autocomplete="off"
                   id="search-city"
                 />
               </span>
-              <span class="col-2 text-center">
-                <button type="submit" class="btn btn-primary shadow">
+              <span class="col-2 text-start">
+                <button type="submit" class="btn btn-primary shadow top-form">
                   Search
                 </button>
               </span>
-              <span class="col-1 text-center">
+              <span class="col-2 col-sm-1 text-end">
                 <i class="fa-solid fa-location-dot location"></i>
               </span>
             </div>
