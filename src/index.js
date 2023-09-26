@@ -100,6 +100,8 @@ function displayWeather(response) {
     response.data.condition.description.slice(1);
   icon.setAttribute("src", `images/${response.data.condition.icon}.png`);
   icon.setAttribute("alt", response.data.condition.description);
+  //To direct to forecast
+  getForecast(response.data.coordinates);
 
   //set dark mode at night
   let card = document.querySelector(".card");
@@ -126,9 +128,6 @@ function displayWeather(response) {
     signature.classList.remove("dark");
     gitHub.classList.remove("dark");
   }
-
-  //To direct to forecast
-  getForecast(response.data.coordinates);
 }
 
 function searchCity(city) {
